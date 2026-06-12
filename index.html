@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConnectX — Real-Time Communication & Collaboration Platform</title>
+  <meta name="description" content="Collaborate, communicate, and create in real-time. Experience HD video calling, screen sharing, interactive whiteboards, and Slack-style chat all in one secure space.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Chart.js CDN for dynamic charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-theme">
+  <!-- Ambient Particle Background -->
+  <div id="particle-container"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- ==================== LANDING PAGE VIEW ==================== -->
+  <div id="landing-view" class="landing-view active">
+    <!-- Header Navigation -->
+    <header class="main-header">
+      <div class="header-container">
+        <a href="#hero" class="logo">
+          <div class="logo-icon">
+            <span class="logo-dot purple-dot"></span>
+            <span class="logo-dot cyan-dot"></span>
+          </div>
+          <span class="logo-text">Connect<span class="gradient-text">X</span></span>
+        </a>
+
+        <nav class="nav-menu" id="nav-menu">
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#showcase" class="nav-link">Showcase</a>
+          <a href="#security" class="nav-link">Security</a>
+          <a href="#tech-stack" class="nav-link">Tech</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+          <a href="#testimonials" class="nav-link">Reviews</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn btn-secondary login-btn" onclick="app.showAuthModal('login')">Login</button>
+          <button class="btn btn-primary start-meeting-btn" onclick="app.showAuthModal('signup')">
+            <span>Start Meeting</span>
+            <i data-lucide="arrow-right"></i>
+          </button>
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation">
+            <i data-lucide="menu"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="#features" onclick="app.toggleMobileMenu()">Features</a>
+      <a href="#showcase" onclick="app.toggleMobileMenu()">Showcase</a>
+      <a href="#security" onclick="app.toggleMobileMenu()">Security</a>
+      <a href="#tech-stack" onclick="app.toggleMobileMenu()">Tech</a>
+      <a href="#pricing" onclick="app.toggleMobileMenu()">Pricing</a>
+      <a href="#testimonials" onclick="app.toggleMobileMenu()">Reviews</a>
+      <div class="mobile-nav-buttons">
+        <button class="btn btn-secondary" onclick="app.showAuthModal('login'); app.toggleMobileMenu();">Login</button>
+        <button class="btn btn-primary" onclick="app.showAuthModal('signup'); app.toggleMobileMenu();">Start Meeting</button>
+      </div>
+    </div>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="hero-bg-gradient"></div>
+      <div class="section-container">
+        <div class="hero-content">
+          <div class="badge-container">
+            <span class="futuristic-badge">
+              <span class="badge-pulse"></span>
+              ConnectX Workspace v2.5 is now Live
+            </span>
+          </div>
+          
+          <h1 class="hero-title animate-title">
+            Collaborate, Communicate <br>&amp; <span class="text-glow-purple">Create</span> in <span class="gradient-text-cyan-blue animate-gradient">Real Time</span>
+          </h1>
+          
+          <p class="hero-subtitle">
+            Experience next-generation multi-user video conferencing, interactive whiteboards, secure screen sharing, and encrypted instant messaging. All unified in a single lightning-fast startup workspace.
+          </p>
+          
+          <div class="hero-ctas">
+            <button class="btn btn-lg btn-primary" onclick="app.showAuthModal('signup')">
+              <i data-lucide="video" class="icon-left"></i>
+              Start Meeting
+            </button>
+            <button class="btn btn-lg btn-secondary" onclick="app.playDemoVideo()">
+              <i data-lucide="play" class="icon-left"></i>
+              Watch Demo
+            </button>
+          </div>
+
+          <!-- Hero Metrics -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-val">99.99%</span>
+              <span class="metric-lbl">Uptime SLA</span>
+            </div>
+            <div class="metric-border"></div>
+            <div class="metric-item">
+              <span class="metric-val">&lt; 15ms</span>
+              <span class="metric-lbl">WebRTC Latency</span>
+            </div>
+            <div class="metric-border"></div>
+            <div class="metric-item">
+              <span class="metric-val">256-bit</span>
+              <span class="metric-lbl">AES Encryption</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Preview Box -->
+        <div class="dashboard-preview-wrapper animate-float">
+          <div class="preview-glow"></div>
+          <div class="preview-window">
+            <div class="window-titlebar">
+              <div class="window-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <div class="window-title">ConnectX Workspace Desktop Preview</div>
+              <div class="window-action-icon">
+                <i data-lucide="maximize-2"></i>
+              </div>
+            </div>
+            <div class="window-content-preview">
+              <div class="mock-sidebar">
+                <div class="mock-logo"></div>
+                <div class="mock-item active"></div>
+                <div class="mock-item"></div>
+                <div class="mock-item"></div>
+                <div class="mock-item"></div>
+                <div class="mock-item"></div>
+              </div>
+              <div class="mock-main">
+                <div class="mock-header">
+                  <div class="mock-search"></div>
+                  <div class="mock-profile"></div>
+                </div>
+                <div class="mock-grid">
+                  <div class="mock-video-card stream-1">
+                    <div class="mock-video-feed">
+                      <div class="mock-avatar avatar-purple">JD</div>
+                      <div class="mock-voice-wave">
+                        <span></span><span></span><span></span>
+                      </div>
+                    </div>
+                    <span class="mock-name">Jessica Davis (Design)</span>
+                  </div>
+                  <div class="mock-video-card stream-2">
+                    <div class="mock-video-feed">
+                      <div class="mock-avatar avatar-cyan">AR</div>
+                      <div class="mock-voice-wave active">
+                        <span></span><span></span><span></span>
+                      </div>
+                    </div>
+                    <span class="mock-name">Alex Rivera (Eng) [You]</span>
+                  </div>
+                  <div class="mock-video-card whiteboard-preview">
+                    <div class="mock-whiteboard">
+                      <svg viewBox="0 0 100 60" class="mock-drawing">
+                        <path d="M 10 30 Q 30 10 50 30 T 90 30" fill="none" stroke="var(--cyan)" stroke-width="2"/>
+                        <circle cx="50" cy="30" r="4" fill="var(--magenta)"/>
+                        <line x1="15" y1="15" x2="40" y2="15" stroke="var(--purple)" stroke-width="1.5" stroke-dasharray="2,2"/>
+                      </svg>
+                      <span class="mock-whiteboard-tag">Shared Whiteboard</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Features Section -->
+    <section id="features" class="features-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Futuristic Features Built For <span class="gradient-text-purple-magenta">High-Performance Teams</span></h2>
+          <p class="section-desc">We integrated communication, creativity, and development into a single, cohesive engine. No toggling, no friction, just pure synchronized creation.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper cyan-glow">
+              <i data-lucide="video" class="feature-icon text-cyan"></i>
+            </div>
+            <h3 class="feature-card-title">Multi-user HD Video Calling</h3>
+            <p class="feature-card-text">Crystal clear ultra-low latency WebRTC calls. Dynamic bandwidth adaptation keeps streams perfectly fluid even in poor network conditions.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper purple-glow">
+              <i data-lucide="monitor" class="feature-icon text-purple"></i>
+            </div>
+            <h3 class="feature-card-title">Real-time Screen Sharing</h3>
+            <p class="feature-card-text">Share multiple windows or entire workspaces up to 4K resolution at 60fps. Perfect for design presentations or code reviews.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper magenta-glow">
+              <i data-lucide="palette" class="feature-icon text-magenta"></i>
+            </div>
+            <h3 class="feature-card-title">Interactive Whiteboard</h3>
+            <p class="feature-card-text">A collaborative visual space with vectors, templates, mindmaps, and sticky notes. Work side-by-side with zero latency.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper blue-glow">
+              <i data-lucide="folder-lock" class="feature-icon text-blue"></i>
+            </div>
+            <h3 class="feature-card-title">Secure File Sharing</h3>
+            <p class="feature-card-text">Upload files directly to dynamic project compartments. Automatic encryption scanning guarantees no malicious objects escape.</p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper cyan-glow">
+              <i data-lucide="shield-check" class="feature-icon text-cyan"></i>
+            </div>
+            <h3 class="feature-card-title">End-to-End Encryption</h3>
+            <p class="feature-card-text">All streams, chat channels, files, and drawing coordinates are signed and protected with absolute military-grade TLS/AES protocols.</p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper purple-glow">
+              <i data-lucide="users-2" class="feature-icon text-purple"></i>
+            </div>
+            <h3 class="feature-card-title">Access Control</h3>
+            <p class="feature-card-text">Enterprise SSO integration, strict lobby management controls, role-based meeting permissions, and custom sub-room approvals.</p>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper magenta-glow">
+              <i data-lucide="message-square" class="feature-icon text-magenta"></i>
+            </div>
+            <h3 class="feature-card-title">Live Chat Messaging</h3>
+            <p class="feature-card-text">High-fidelity Slack-style thread messaging, emojis, canvas sharing, code highlighting blocks, and integrated voice clips.</p>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper blue-glow">
+              <i data-lucide="disc" class="feature-icon text-blue"></i>
+            </div>
+            <h3 class="feature-card-title">Meeting Recording</h3>
+            <p class="feature-card-text">Record in high definition straight to safe cloud nodes. Easily request local clips or download transcription scripts in seconds.</p>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper cyan-glow">
+              <i data-lucide="sparkles" class="feature-icon text-cyan"></i>
+            </div>
+            <h3 class="feature-card-title">AI Meeting Summaries</h3>
+            <p class="feature-card-text">Let our integrated AI generate meeting minutes, highlight major action plans, assign Jira/Linear tasks, and index search tags.</p>
+          </div>
+
+          <!-- Card 10 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper purple-glow">
+              <i data-lucide="smartphone" class="feature-icon text-purple"></i>
+            </div>
+            <h3 class="feature-card-title">Cross-platform Support</h3>
+            <p class="feature-card-text">Seamless performance on desktops, tablets, and mobile phones. Native experiences that don't drain systems or crash browsers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Product Showcase (Interactive Viewport) -->
+    <section id="showcase" class="showcase-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">The Unified <span class="gradient-text-cyan-blue">Collaboration Workspace</span></h2>
+          <p class="section-desc">Interact with different modules of our unified interface. See how we blend crystal-clear streams, collaborative whiteboards, and lightning-fast chat messaging.</p>
+        </div>
+
+        <div class="showcase-interactive-container">
+          <div class="showcase-tabs">
+            <button class="showcase-tab-btn active" data-showcase-tab="video">
+              <i data-lucide="video"></i>
+              <span>Video Grid</span>
+            </button>
+            <button class="showcase-tab-btn" data-showcase-tab="whiteboard">
+              <i data-lucide="palette"></i>
+              <span>Collab Whiteboard</span>
+            </button>
+            <button class="showcase-tab-btn" data-showcase-tab="chat">
+              <i data-lucide="message-square"></i>
+              <span>Live Chat System</span>
+            </button>
+            <button class="showcase-tab-btn" data-showcase-tab="files">
+              <i data-lucide="folder"></i>
+              <span>Secure File Center</span>
+            </button>
+          </div>
+
+          <div class="showcase-content-box glass-card">
+            <!-- Slide 1: Video -->
+            <div class="showcase-slide active" id="slide-video">
+              <div class="showcase-grid-layout">
+                <div class="showcase-text">
+                  <h3>Interactive HD Video Grid</h3>
+                  <p>Grid adapts automatically for up to 1,000 active participants. Highlight speakers dynamically, use beautiful custom blur settings, and share secondary cameras seamlessly.</p>
+                  <ul class="showcase-list">
+                    <li><i data-lucide="check" class="text-cyan"></i> Intelligent active-speaker highlighting</li>
+                    <li><i data-lucide="check" class="text-cyan"></i> Custom neon noise-cancellation visualizer</li>
+                    <li><i data-lucide="check" class="text-cyan"></i> Integrated browser picture-in-picture mode</li>
+                  </ul>
+                  <button class="btn btn-primary" onclick="app.showDashboard()">Launch Meeting Room</button>
+                </div>
+                <div class="showcase-visual">
+                  <div class="video-grid-visualizer">
+                    <div class="v-card">
+                      <div class="v-avatar cyan-glow-border">AR</div>
+                      <span class="v-tag">Alex Rivera (Eng)</span>
+                      <div class="v-audio-bar"><span></span><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="v-card">
+                      <div class="v-avatar purple-glow-border">SD</div>
+                      <span class="v-tag">Sarah Chen (PM)</span>
+                      <div class="v-audio-bar active"><span></span><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="v-card">
+                      <div class="v-avatar magenta-glow-border">MK</div>
+                      <span class="v-tag">Marcus K. (Design)</span>
+                      <div class="v-audio-bar"><span></span><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="v-card">
+                      <div class="v-avatar blue-glow-border">LE</div>
+                      <span class="v-tag">Liam E. (Client)</span>
+                      <div class="v-audio-bar"><span></span><span></span><span></span><span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Whiteboard -->
+            <div class="showcase-slide" id="slide-whiteboard">
+              <div class="showcase-grid-layout">
+                <div class="showcase-text">
+                  <h3>Co-create on a Vector Canvas</h3>
+                  <p>Our integrated whiteboard allows multiple users to express ideas. Infinite zooming, responsive templates, custom flowcharts, and live cursor indicators make online meetings feel physical.</p>
+                  <ul class="showcase-list">
+                    <li><i data-lucide="check" class="text-magenta"></i> Multi-user live vector drawing tracks</li>
+                    <li><i data-lucide="check" class="text-magenta"></i> Rich layout templates (Kanban, Flowcharts, Mindmaps)</li>
+                    <li><i data-lucide="check" class="text-magenta"></i> Convert hand drawings to vector shapes</li>
+                  </ul>
+                  <button class="btn btn-magenta" onclick="app.showDashboard()">Open Whiteboard</button>
+                </div>
+                <div class="showcase-visual">
+                  <div class="whiteboard-visualizer">
+                    <div class="wb-toolbar">
+                      <span class="wb-tool-dot active" style="background:var(--cyan)"></span>
+                      <span class="wb-tool-dot" style="background:var(--magenta)"></span>
+                      <span class="wb-tool-dot" style="background:var(--purple)"></span>
+                      <span class="wb-tool-icon"><i data-lucide="type"></i></span>
+                      <span class="wb-tool-icon"><i data-lucide="square"></i></span>
+                    </div>
+                    <svg viewBox="0 0 200 120" class="wb-svg">
+                      <rect x="20" y="20" width="45" height="25" rx="5" fill="rgba(168, 85, 247, 0.15)" stroke="var(--purple)" stroke-width="1.5"/>
+                      <text x="42" y="36" fill="#fff" font-size="8" text-anchor="middle" font-family="inherit">Brainstorm</text>
+                      
+                      <rect x="135" y="20" width="45" height="25" rx="5" fill="rgba(6, 182, 212, 0.15)" stroke="var(--cyan)" stroke-width="1.5"/>
+                      <text x="157" y="36" fill="#fff" font-size="8" text-anchor="middle" font-family="inherit">Execution</text>
+                      
+                      <path d="M 65 32 L 135 32" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3,3" fill="none"/>
+                      <polygon points="135,32 129,29 129,35" fill="#6366f1"/>
+                      
+                      <!-- Live Cursors -->
+                      <g transform="translate(85,45)">
+                        <polygon points="0,0 4,12 8,8 14,14 16,12 10,6 14,4" fill="var(--cyan)"/>
+                        <rect x="12" y="12" width="55" height="14" rx="3" fill="var(--cyan)"/>
+                        <text x="40" y="22" fill="#000" font-size="7" font-weight="bold" text-anchor="middle">Alex R. is drawing</text>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Chat -->
+            <div class="showcase-slide" id="slide-chat">
+              <div class="showcase-grid-layout">
+                <div class="showcase-text">
+                  <h3>Slack-style Instant Chat</h3>
+                  <p>Organize discussion into threaded channels. Share files, embed whiteboard clips directly inside conversation tabs, write formatted code snippets, and initiate quick audio huddles.</p>
+                  <ul class="showcase-list">
+                    <li><i data-lucide="check" class="text-purple"></i> Multi-channel organization structures</li>
+                    <li><i data-lucide="check" class="text-purple"></i> Custom reactions, threads, and @mentions</li>
+                    <li><i data-lucide="check" class="text-purple"></i> Smart notifications center</li>
+                  </ul>
+                  <button class="btn btn-secondary" onclick="app.showDashboard()">Enter Chat Channels</button>
+                </div>
+                <div class="showcase-visual">
+                  <div class="chat-visualizer">
+                    <div class="chat-header-bar">
+                      <span class="ch-channel">#engineering-team</span>
+                      <span class="ch-members"><i data-lucide="users"></i> 14</span>
+                    </div>
+                    <div class="chat-messages-box">
+                      <div class="chat-bubble left">
+                        <span class="cb-sender">Jessica Davis</span>
+                        <p class="cb-text">Have we resolved the WebRTC ICE candidate issue on mobile devices?</p>
+                      </div>
+                      <div class="chat-bubble right">
+                        <p class="cb-text">Yes! I patched the STUN/TURN backup list. Connection setup is down to 8ms now. 🚀</p>
+                      </div>
+                      <div class="chat-bubble left typing-bubble">
+                        <span class="cb-sender">Marcus K.</span>
+                        <div class="typing-indicator"><span></span><span></span><span></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Files -->
+            <div class="showcase-slide" id="slide-files">
+              <div class="showcase-grid-layout">
+                <div class="showcase-text">
+                  <h3>Military Encrypted Shared File Center</h3>
+                  <p>Store, organize, and inspect design layouts, presentation decks, or security credentials. Files are instantly distributed to global edge CDNs for high-speed downloads.</p>
+                  <ul class="showcase-list">
+                    <li><i data-lucide="check" class="text-blue"></i> Fully interactive drag &amp; drop dashboard loader</li>
+                    <li><i data-lucide="check" class="text-blue"></i> Real-time multi-peer versioning log files</li>
+                    <li><i data-lucide="check" class="text-blue"></i> High-speed uploads powered by edge network caching</li>
+                  </ul>
+                  <button class="btn btn-secondary" onclick="app.showDashboard()">Browse Shared Files</button>
+                </div>
+                <div class="showcase-visual">
+                  <div class="files-visualizer">
+                    <div class="file-item-bar">
+                      <i data-lucide="image" class="file-icon-tag text-cyan"></i>
+                      <div class="file-details">
+                        <span class="fd-name">LandingPage_v3.fig</span>
+                        <span class="fd-info">14.8 MB • Uploaded by Marcus K.</span>
+                      </div>
+                      <i data-lucide="download" class="fd-dl-btn"></i>
+                    </div>
+                    <div class="file-item-bar">
+                      <i data-lucide="file-text" class="file-icon-tag text-purple"></i>
+                      <div class="file-details">
+                        <span class="fd-name">SecurityProtocol_Audit.pdf</span>
+                        <span class="fd-info">2.1 MB • Uploaded by SecOps</span>
+                      </div>
+                      <i data-lucide="download" class="fd-dl-btn"></i>
+                    </div>
+                    <div class="file-item-bar upload-progress-bar">
+                      <i data-lucide="file-video" class="file-icon-tag text-magenta"></i>
+                      <div class="file-details">
+                        <span class="fd-name">HeroDemoRecording.mp4</span>
+                        <span class="fd-info">Uploading... 78% completed</span>
+                      </div>
+                      <div class="progress-bar-container"><div class="progress-bar-fill" style="width: 78%"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Security Section -->
+    <section id="security" class="security-section">
+      <div class="section-container">
+        <div class="security-grid">
+          <div class="security-text-content">
+            <div class="badge-container">
+              <span class="futuristic-badge security-badge">
+                <i data-lucide="shield-check" class="icon-left"></i>
+                SOC2 Certified Platform
+              </span>
+            </div>
+            <h2 class="section-title">Enterprise-Grade Security <br>Powered by <span class="gradient-text-purple-magenta">End-to-End Encryption</span></h2>
+            <p class="section-desc">
+              Your company secrets are absolute. ConnectX utilizes zero-knowledge cryptographic architectures, meaning all screen captures, whiteboard vectors, and instant chat audio packets are fully encrypted before leaving local servers.
+            </p>
+            
+            <div class="security-features-bullets">
+              <div class="sec-bullet">
+                <div class="sec-bullet-icon"><i data-lucide="lock" class="text-purple"></i></div>
+                <div>
+                  <h4>Zero-Knowledge Architecture</h4>
+                  <p>Even our core databases cannot inspect message packets, transcripts, or whiteboard templates.</p>
+                </div>
+              </div>
+              <div class="sec-bullet">
+                <div class="sec-bullet-icon"><i data-lucide="key" class="text-magenta"></i></div>
+                <div>
+                  <h4>Dynamic Session Key Exchanges</h4>
+                  <p>WebRTC channels generate unique ephemeral public keys which are fully destroyed upon meeting termination.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="security-badges-container">
+              <div class="badge-card"><div class="mock-badge">SOC2</div></div>
+              <div class="badge-card"><div class="mock-badge">GDPR</div></div>
+              <div class="badge-card"><div class="mock-badge">HIPAA</div></div>
+              <div class="badge-card"><div class="mock-badge">CCPA</div></div>
+            </div>
+          </div>
+
+          <!-- Encryption Interactive Visualizer Widget -->
+          <div class="security-visualizer-box glass-card">
+            <div class="sc-header">
+              <span class="sc-title"><i data-lucide="fingerprint" class="text-magenta"></i> CryptoTunnel Visualizer</span>
+              <div class="sc-status-indicator active" id="sec-tunnel-status">ENCRYPTED</div>
+            </div>
+            
+            <div class="sc-animation-canvas">
+              <div class="node-wrapper source-node">
+                <div class="node-icon"><i data-lucide="laptop"></i></div>
+                <span>Your Device</span>
+              </div>
+              
+              <div class="tunnel-pathway">
+                <span class="tunnel-particle"></span>
+                <span class="tunnel-particle delay-1"></span>
+                <span class="tunnel-particle delay-2"></span>
+                <div class="shield-lock-container" id="shield-lock-btn" onclick="app.toggleSecurityShield()">
+                  <i data-lucide="lock" class="locked-icon text-cyan" id="lock-icon-svg"></i>
+                  <div class="shield-radial-waves"></div>
+                </div>
+              </div>
+
+              <div class="node-wrapper dest-node">
+                <div class="node-icon"><i data-lucide="server"></i></div>
+                <span>ConnectX Edge Node</span>
+              </div>
+            </div>
+
+            <div class="sc-footer-log">
+              <span class="log-label">Security Stream Logs:</span>
+              <div class="log-lines-box" id="security-log-container">
+                <span class="log-line text-cyan">> Initiating Diffie-Hellman dynamic key exchange...</span>
+                <span class="log-line text-purple">> Ephemeral shared session established successfully.</span>
+                <span class="log-line text-magenta">> AES-GCM 256-bit encryption pipelines verified.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Technology Stack Section -->
+    <section id="tech-stack" class="tech-stack-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Engineered with the <span class="gradient-text-cyan-blue">Ultimate Tech Stack</span></h2>
+          <p class="section-desc">ConnectX is built on cutting-edge architectures designed for high bandwidth, absolute speed, and zero down-time reliability.</p>
+        </div>
+
+        <div class="tech-grid">
+          <!-- Card: Frontend -->
+          <div class="glass-card tech-card" data-tech="react">
+            <div class="tech-icon-box react-blue-bg">
+              <svg viewBox="0 0 100 100" class="tech-svg"><circle cx="50" cy="50" r="10" fill="#00d8ff"/><ellipse cx="50" cy="50" rx="35" ry="12" fill="none" stroke="#00d8ff" stroke-width="3" transform="rotate(0 50 50)"/><ellipse cx="50" cy="50" rx="35" ry="12" fill="none" stroke="#00d8ff" stroke-width="3" transform="rotate(60 50 50)"/><ellipse cx="50" cy="50" rx="35" ry="12" fill="none" stroke="#00d8ff" stroke-width="3" transform="rotate(120 50 50)"/></svg>
+            </div>
+            <h4>React.js / Next.js</h4>
+            <span class="tech-layer">Frontend Framework</span>
+            <p>Renders modular design trees dynamically. Static generation provides instant startup load times.</p>
+          </div>
+
+          <!-- Card: WebRTC -->
+          <div class="glass-card tech-card" data-tech="webrtc">
+            <div class="tech-icon-box webrtc-orange-bg">
+              <svg viewBox="0 0 100 100" class="tech-svg"><path d="M 15 30 L 50 15 L 85 30 L 85 70 L 50 85 L 15 70 Z" fill="none" stroke="#f15a24" stroke-width="4"/><path d="M 50 15 L 50 85 M 15 30 L 85 70 M 85 30 L 15 70" stroke="#f15a24" stroke-dasharray="3,3" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="#f15a24"/></svg>
+            </div>
+            <h4>WebRTC Protocol</h4>
+            <span class="tech-layer">Real-Time Core</span>
+            <p>Peer-to-peer real-time multimedia transfer pipes. Adapts streams using Google Congestion Control (GCC).</p>
+          </div>
+
+          <!-- Card: Socket.io -->
+          <div class="glass-card tech-card" data-tech="socketio">
+            <div class="tech-icon-box socket-black-bg">
+              <svg viewBox="0 0 100 100" class="tech-svg"><path d="M 50 5 L 80 50 L 50 95 L 20 50 Z" fill="none" stroke="#fff" stroke-width="4"/><path d="M 45 30 L 35 50 L 52 50 L 48 70 L 65 45 L 48 45 Z" fill="#fff"/></svg>
+            </div>
+            <h4>Socket.io / WS</h4>
+            <span class="tech-layer">Bi-directional Gateway</span>
+            <p>Provides low-overhead WebSocket pipelines to manage multi-user drawing logs, chat events, and dynamic cursor states.</p>
+          </div>
+
+          <!-- Card: Express -->
+          <div class="glass-card tech-card" data-tech="node">
+            <div class="tech-icon-box node-green-bg">
+              <svg viewBox="0 0 100 100" class="tech-svg"><path d="M 50 10 L 85 30 L 85 70 L 50 90 L 15 70 L 15 30 Z" fill="none" stroke="#8cc84b" stroke-width="4"/><path d="M 50 10 L 50 90 M 15 30 L 85 70 M 85 30 L 15 70" stroke="#8cc84b" stroke-width="1.5" stroke-dasharray="2,2"/><circle cx="50" cy="50" r="16" fill="#8cc84b"/></svg>
+            </div>
+            <h4>Node.js / Express</h4>
+            <span class="tech-layer">Backend Infrastructure</span>
+            <p>Ultra-efficient asynchronous JavaScript runtime that handles auth verification routes and media routing controllers.</p>
+          </div>
+
+          <!-- Card: DB -->
+          <div class="glass-card tech-card" data-tech="mongodb">
+            <div class="tech-icon-box db-green-bg">
+              <svg viewBox="0 0 100 100" class="tech-svg"><path d="M 50 10 Q 75 40 50 90 Q 25 40 50 10 Z" fill="none" stroke="#13aa52" stroke-width="4"/><path d="M 50 35 L 50 90" stroke="#13aa52" stroke-width="2"/><circle cx="50" cy="35" r="5" fill="#13aa52"/></svg>
+            </div>
+            <h4>MongoDB Atlas</h4>
+            <span class="tech-layer">Database Cluster</span>
+            <p>NoSQL flexible schema systems to save channel archives, settings configurations, user lists, and team records safely.</p>
+          </div>
+
+          <!-- Card: JWT -->
+          <div class="glass-card tech-card" data-tech="jwt">
+            <div class="tech-icon-box jwt-purple-bg">
+              <svg viewBox="0 0 100 100" class="tech-svg"><circle cx="50" cy="50" r="30" fill="none" stroke="#d63aff" stroke-width="4"/><circle cx="35" cy="50" r="8" fill="#d63aff"/><circle cx="65" cy="50" r="8" fill="#d63aff"/><path d="M 40 65 Q 50 72 60 65" stroke="#d63aff" stroke-width="3" fill="none"/></svg>
+            </div>
+            <h4>JWT / OAuth</h4>
+            <span class="tech-layer">Identity Protection</span>
+            <p>Stateless JSON Web Tokens and external SSO credentials verify all connected dashboard channels.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Pricing Plans -->
+    <section id="pricing" class="pricing-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Flexible Pricing for <span class="gradient-text-purple-magenta">High-Velocity Teams</span></h2>
+          <p class="section-desc">Choose a tier that aligns with your organizational scale. All plans feature ultra-low latency server access.</p>
+          
+          <!-- Pricing Toggle Widget -->
+          <div class="pricing-toggle-wrapper">
+            <span class="toggle-label active" id="monthly-label">Monthly</span>
+            <div class="pricing-toggle-switch" onclick="app.toggleBillingCycle()" id="billing-toggle">
+              <span class="pricing-toggle-dot" id="pricing-toggle-dot"></span>
+            </div>
+            <span class="toggle-label" id="annual-label">Annual <span class="discount-badge">Save 20%</span></span>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Plan 1: Free -->
+          <div class="glass-card pricing-card">
+            <div class="pc-header">
+              <span class="pc-plan-name">Starter</span>
+              <div class="pc-price">
+                <span class="currency">$</span>
+                <span class="price-val" id="price-starter">0</span>
+                <span class="period">/mo</span>
+              </div>
+              <p class="pc-desc">Perfect for small teams looking to coordinate quick daily huddles.</p>
+            </div>
+            
+            <div class="pc-divider"></div>
+            
+            <ul class="pc-features">
+              <li><i data-lucide="check" class="text-cyan"></i> Up to 45 min meeting durations</li>
+              <li><i data-lucide="check" class="text-cyan"></i> 10 active meeting participants</li>
+              <li><i data-lucide="check" class="text-cyan"></i> Integrated live whiteboard tools</li>
+              <li><i data-lucide="check" class="text-cyan"></i> Standard Slack-style chat channels</li>
+              <li class="disabled"><i data-lucide="x" class="text-red"></i> Ephemeral HD meeting recording</li>
+              <li class="disabled"><i data-lucide="x" class="text-red"></i> Advanced AI summaries</li>
+            </ul>
+
+            <button class="btn btn-secondary pc-btn" onclick="app.showDashboard()">Launch Free Room</button>
+          </div>
+
+          <!-- Plan 2: Pro (Popular) -->
+          <div class="glass-card pricing-card popular-card">
+            <div class="popular-glow"></div>
+            <div class="popular-tag">MOST POPULAR</div>
+            <div class="pc-header">
+              <span class="pc-plan-name text-cyan">Pro Workspace</span>
+              <div class="pc-price text-glow-cyan">
+                <span class="currency">$</span>
+                <span class="price-val" id="price-pro">19</span>
+                <span class="period">/mo</span>
+              </div>
+              <p class="pc-desc">Designed for scaling departments requiring deep collaboration.</p>
+            </div>
+            
+            <div class="pc-divider"></div>
+            
+            <ul class="pc-features">
+              <li><i data-lucide="check" class="text-cyan"></i> UNLIMITED meeting duration limits</li>
+              <li><i data-lucide="check" class="text-cyan"></i> Up to 150 active participants</li>
+              <li><i data-lucide="check" class="text-cyan"></i> Infinite vector whiteboard vectors</li>
+              <li><i data-lucide="check" class="text-cyan"></i> Unlimited channels &amp; custom bots</li>
+              <li><i data-lucide="check" class="text-cyan"></i> Ephemeral HD cloud recording storage</li>
+              <li><i data-lucide="check" class="text-cyan"></i> Standard AI automated transcriptions</li>
+            </ul>
+
+            <button class="btn btn-primary pc-btn" onclick="app.showDashboard()">Upgrade Workspace</button>
+          </div>
+
+          <!-- Plan 3: Enterprise -->
+          <div class="glass-card pricing-card">
+            <div class="pc-header">
+              <span class="pc-plan-name text-purple">Enterprise Core</span>
+              <div class="pc-price text-glow-purple">
+                <span class="currency">$</span>
+                <span class="price-val" id="price-enterprise">49</span>
+                <span class="period">/mo</span>
+              </div>
+              <p class="pc-desc">Engineered for large corporations needing total custom governance.</p>
+            </div>
+            
+            <div class="pc-divider"></div>
+            
+            <ul class="pc-features">
+              <li><i data-lucide="check" class="text-purple"></i> Up to 1,000 active meeting streams</li>
+              <li><i data-lucide="check" class="text-purple"></i> Custom dedicated WebRTC signaling</li>
+              <li><i data-lucide="check" class="text-purple"></i> Single Sign-On (SSO) integration</li>
+              <li><i data-lucide="check" class="text-purple"></i> Zero-Knowledge E2E compliance</li>
+              <li><i data-lucide="check" class="text-purple"></i> Unlimited AI smart meeting summaries</li>
+              <li><i data-lucide="check" class="text-purple"></i> Dedicated 24/7 technical engineers</li>
+            </ul>
+
+            <button class="btn btn-secondary pc-btn" onclick="app.showDashboard()">Contact Sales</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Testimonials -->
+    <section id="testimonials" class="testimonials-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Endorsed by the <span class="gradient-text-cyan-blue">World's Smartest Teams</span></h2>
+          <p class="section-desc">Read how dynamic operations, design consultancies, and global operations thrive using ConnectX.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Card 1 -->
+          <div class="glass-card testimonial-card">
+            <div class="t-stars">
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+            </div>
+            <p class="t-text">"ConnectX completely changed how our product team syncs. We can outline layouts on the Whiteboard while holding standard video review calls, then instantly save findings in Slack channels."</p>
+            <div class="t-user">
+              <div class="t-avatar avatar-cyan">SC</div>
+              <div class="t-info">
+                <span class="t-name">Sarah Chen</span>
+                <span class="t-role">Lead Product Manager, Vercel</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="glass-card testimonial-card">
+            <div class="t-stars">
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+            </div>
+            <p class="t-text">"The WebRTC video latency on this platform is unmatched. Even on low LTE connections during remote travels, our whiteboard coordinate sync handles changes effortlessly with no delay."</p>
+            <div class="t-user">
+              <div class="t-avatar avatar-purple">MK</div>
+              <div class="t-info">
+                <span class="t-name">Marcus K.</span>
+                <span class="t-role">Director of UX, DesignCore</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="glass-card testimonial-card">
+            <div class="t-stars">
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+              <i data-lucide="star" class="star-fill"></i>
+            </div>
+            <p class="t-text">"The integrated security certifications allowed us to transition from legacy setups easily. Zero-knowledge protocols safeguard our active engineering layouts fully."</p>
+            <div class="t-user">
+              <div class="t-avatar avatar-magenta">DR</div>
+              <div class="t-info">
+                <span class="t-name">David R.</span>
+                <span class="t-role">Chief Information Officer, Linearize</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer class="main-footer">
+      <div class="section-container">
+        <div class="footer-grid">
+          <div class="footer-brand-column">
+            <a href="#hero" class="logo">
+              <div class="logo-icon">
+                <span class="logo-dot purple-dot"></span>
+                <span class="logo-dot cyan-dot"></span>
+              </div>
+              <span class="logo-text">Connect<span class="gradient-text">X</span></span>
+            </a>
+            <p class="footer-brand-desc">Next-generation real-time visual collaboration workspace for high-velocity startup operations.</p>
+            <div class="footer-socials">
+              <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
+              <a href="#" class="social-link"><i data-lucide="github"></i></a>
+              <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-links-column">
+            <h4>Product</h4>
+            <a href="#features">Features</a>
+            <a href="#showcase">Showcase</a>
+            <a href="#pricing">Pricing Plans</a>
+            <a href="#">Roadmap</a>
+          </div>
+
+          <div class="footer-links-column">
+            <h4>Developers</h4>
+            <a href="#">Docs Portal</a>
+            <a href="#">API Reference</a>
+            <a href="#tech-stack">Technology</a>
+            <a href="#">GitHub Repo</a>
+          </div>
+
+          <div class="footer-links-column">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Security Audits</a>
+            <a href="#">Uptime Logs</a>
+            <a href="#">Contact Support</a>
+          </div>
+
+          <div class="footer-newsletter-column">
+            <h4>Subscribe to Newsletter</h4>
+            <p>Get quarterly product upgrades, feature logs, and tech details.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); app.subscribeNewsletter();">
+              <input type="email" placeholder="name@company.com" required id="newsletter-email">
+              <button type="submit" class="btn btn-primary"><i data-lucide="send"></i></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>&copy; 2026 ConnectX Technologies Inc. All security rights protected.</span>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Compliance</a>
+            <a href="#">Cookie Audits</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ==================== AUTHENTICATED DASHBOARD WORKSPACE SPA ==================== -->
+  <div id="dashboard-view" class="dashboard-view">
+    <!-- Collapsible Sidebar Navigation -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <div class="dash-logo-box">
+        <div class="logo">
+          <div class="logo-icon">
+            <span class="logo-dot purple-dot"></span>
+            <span class="logo-dot cyan-dot"></span>
+          </div>
+          <span class="logo-text">Connect<span class="gradient-text">X</span></span>
+        </div>
+        <button class="sidebar-collapse-btn" onclick="app.toggleSidebar()" aria-label="Toggle Sidebar">
+          <i data-lucide="chevrons-left" id="collapse-icon"></i>
+        </button>
+      </div>
+
+      <div class="dash-status-badge">
+        <span class="pulse-green"></span>
+        <span class="status-badge-lbl">Server Connected</span>
+      </div>
+
+      <nav class="dash-nav">
+        <button class="dash-nav-item active" data-tab="overview" onclick="app.switchTab('overview')">
+          <i data-lucide="layout-dashboard"></i>
+          <span class="dash-nav-lbl">Overview</span>
+        </button>
+        <button class="dash-nav-item" data-tab="meetings" onclick="app.switchTab('meetings')">
+          <i data-lucide="video"></i>
+          <span class="dash-nav-lbl">Meeting Rooms</span>
+        </button>
+        <button class="dash-nav-item" data-tab="whiteboard" onclick="app.switchTab('whiteboard')">
+          <i data-lucide="palette"></i>
+          <span class="dash-nav-lbl">Whiteboard Canvas</span>
+        </button>
+        <button class="dash-nav-item" data-tab="chat" onclick="app.switchTab('chat')">
+          <i data-lucide="message-square"></i>
+          <span class="dash-nav-lbl">Live Chat Room</span>
+        </button>
+        <button class="dash-nav-item" data-tab="friends" onclick="app.switchTab('friends')">
+          <i data-lucide="users"></i>
+          <span class="dash-nav-lbl">Friends Hub</span>
+        </button>
+        <button class="dash-nav-item" data-tab="files" onclick="app.switchTab('files')">
+          <i data-lucide="folder"></i>
+          <span class="dash-nav-lbl">Shared Files</span>
+        </button>
+        <button class="dash-nav-item" data-tab="settings" onclick="app.switchTab('settings')">
+          <i data-lucide="settings"></i>
+          <span class="dash-nav-lbl">System Settings</span>
+        </button>
+      </nav>
+
+      <!-- Profile Widget -->
+      <div class="dash-profile-footer">
+        <div class="dash-profile-details">
+          <div class="t-avatar avatar-purple" id="avatar-display">AR</div>
+          <div class="dash-profile-info">
+            <span class="dp-name" id="profile-name-display">Alex Rivera</span>
+            <span class="dp-role">Workspace Administrator</span>
+          </div>
+        </div>
+        <button class="dash-logout-btn" onclick="app.logout()" title="Logout to Landing Page">
+          <i data-lucide="log-out"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Container -->
+    <main class="dash-main-container">
+      
+      <!-- Top Action Bar -->
+      <header class="dash-top-bar">
+        <div class="dash-view-title-container">
+          <button class="sidebar-expand-mobile" onclick="app.toggleSidebarMobile()">
+            <i data-lucide="menu"></i>
+          </button>
+          <h2 class="dash-view-title" id="dash-view-title">Dashboard Overview</h2>
+        </div>
+
+        <div class="dash-top-actions">
+          <!-- Notification Widget -->
+          <div class="notification-widget-container">
+            <button class="action-circle-btn" onclick="app.toggleNotificationMenu()">
+              <i data-lucide="bell"></i>
+              <span class="notif-badge"></span>
+            </button>
+            
+            <div class="notification-dropdown glass-card" id="notification-dropdown">
+              <div class="nd-header">
+                <h4>System Notifications</h4>
+                <button onclick="app.clearNotifications()">Clear All</button>
+              </div>
+              <div class="nd-list" id="notification-list">
+                <div class="nd-item unread">
+                  <div class="nd-icon icon-purple"><i data-lucide="video"></i></div>
+                  <div class="nd-text">
+                    <p><strong>Sarah Chen</strong> invited you to a video room: <em>#Design Review</em></p>
+                    <span>2 mins ago</span>
+                  </div>
+                </div>
+                <div class="nd-item unread">
+                  <div class="nd-icon icon-cyan"><i data-lucide="message-square"></i></div>
+                  <div class="nd-text">
+                    <p><strong>Marcus K.</strong> tagged you in <em>#engineering-team</em> channel</p>
+                    <span>15 mins ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary dash-quick-call" onclick="app.switchTab('meetings')">
+            <i data-lucide="video" class="icon-left"></i>
+            Quick Meeting
+          </button>
+        </div>
+      </header>
+
+      <!-- Dynamic View Wrapper -->
+      <div class="dash-content-body">
+        
+        <!-- View 1: Overview / Analytics -->
+        <div class="dash-tab-content active" id="tab-overview">
+          <div class="dashboard-overview-layout">
+            <!-- Greeting Hero Card -->
+            <div class="glass-card dash-banner-card">
+              <div class="dash-banner-content">
+                <h3>Welcome back, <span class="gradient-text-cyan-blue" id="greeting-username">Alex</span>! 👋</h3>
+                <p>All real-time communication nodes are running at optimum capacity. Your system latency is currently hovering at a sleek 8 milliseconds.</p>
+                <div class="dash-banner-actions">
+                  <button class="btn btn-primary" onclick="app.switchTab('meetings')">
+                    <i data-lucide="plus-circle" class="icon-left"></i> Start New Meeting
+                  </button>
+                  <button class="btn btn-secondary" onclick="app.switchTab('whiteboard')">
+                    <i data-lucide="palette" class="icon-left"></i> Start Drawing Workspace
+                  </button>
+                </div>
+              </div>
+              <div class="dash-banner-vector">
+                <svg viewBox="0 0 100 100" class="banner-vector-svg">
+                  <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(6, 182, 212, 0.2)" stroke-width="2"/>
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(168, 85, 247, 0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+                  <path d="M 20 50 Q 50 20 80 50" fill="none" stroke="var(--cyan)" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="50" cy="35" r="4" fill="var(--magenta)"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Dashboard Fast Metrics -->
+            <div class="dash-metrics-grid">
+              <div class="glass-card metric-panel-card">
+                <span class="mpc-label">Total Call Time</span>
+                <span class="mpc-val">4,280 mins</span>
+                <span class="mpc-trend text-cyan"><i data-lucide="arrow-up-right"></i> +12% this week</span>
+              </div>
+              <div class="glass-card metric-panel-card">
+                <span class="mpc-label">Active Channels</span>
+                <span class="mpc-val">12 Channels</span>
+                <span class="mpc-trend text-purple"><i data-lucide="activity"></i> 4 active now</span>
+              </div>
+              <div class="glass-card metric-panel-card">
+                <span class="mpc-label">Bandwidth Transferred</span>
+                <span class="mpc-val">184.2 GB</span>
+                <span class="mpc-trend text-cyan"><i data-lucide="arrow-up-right"></i> +8.4 GB today</span>
+              </div>
+              <div class="glass-card metric-panel-card">
+                <span class="mpc-label">Security Shield Rating</span>
+                <span class="mpc-val">100% Shield</span>
+                <span class="mpc-trend text-magenta"><i data-lucide="shield"></i> E2E active</span>
+              </div>
+            </div>
+
+            <!-- Bandwidth Chart Layout -->
+            <div class="dash-chart-and-activities">
+              <div class="glass-card dash-chart-card">
+                <div class="chart-header">
+                  <h4>Real-Time Bandwidth Utilization</h4>
+                  <div class="chart-legend">
+                    <span class="legend-dot bg-cyan"></span> Uplink
+                    <span class="legend-dot bg-purple"></span> Downlink
+                  </div>
+                </div>
+                <div class="chart-canvas-wrapper">
+                  <canvas id="bandwidth-chart"></canvas>
+                </div>
+              </div>
+
+              <!-- Recent Meetings Activity -->
+              <div class="glass-card dash-history-card">
+                <h4>Recent Meeting Logs</h4>
+                <div class="history-list">
+                  <div class="history-item">
+                    <div class="hi-icon"><i data-lucide="video" class="text-cyan"></i></div>
+                    <div class="hi-details">
+                      <span class="hi-title">Daily Operations Standup</span>
+                      <span class="hi-meta">Yesterday • 42 mins duration • 8 members</span>
+                    </div>
+                    <button class="hi-action-btn" title="Download Recording"><i data-lucide="download"></i></button>
+                  </div>
+                  <div class="history-item">
+                    <div class="hi-icon"><i data-lucide="palette" class="text-magenta"></i></div>
+                    <div class="hi-details">
+                      <span class="hi-title">Interactive Design Sprint</span>
+                      <span class="hi-meta">May 24, 2026 • 120 mins duration • 4 members</span>
+                    </div>
+                    <button class="hi-action-btn" title="Download SVG Vector"><i data-lucide="download"></i></button>
+                  </div>
+                  <div class="history-item">
+                    <div class="hi-icon"><i data-lucide="video" class="text-purple"></i></div>
+                    <div class="hi-details">
+                      <span class="hi-title">Partner Pitch Deck Sync</span>
+                      <span class="hi-meta">May 22, 2026 • 50 mins duration • 12 members</span>
+                    </div>
+                    <button class="hi-action-btn" title="Download Recording"><i data-lucide="download"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 2: Meeting Room View -->
+        <div class="dash-tab-content" id="tab-meetings">
+          <div class="dashboard-meeting-layout">
+            <div class="meeting-room-viewport">
+              
+              <!-- Video Grid Container -->
+              <div class="meeting-video-grid" id="meeting-video-grid">
+                
+                <!-- Main Local Camera Feed Card -->
+                <div class="meeting-video-card" id="local-video-card">
+                  <div class="video-feed-container">
+                    <video id="local-webcam-stream" autoplay playsinline muted></video>
+                    <div class="fallback-cam-feed" id="local-cam-fallback">
+                      <div class="t-avatar avatar-purple avatar-lg" id="local-avatar-tag">AR</div>
+                      <div class="live-mic-visualizer" id="local-mic-visualizer">
+                        <span></span><span></span><span></span><span></span><span></span>
+                      </div>
+                      <span class="fallback-status-txt">Camera Feeds Active</span>
+                    </div>
+                  </div>
+                  <div class="video-overlay-info">
+                    <span class="participant-name" id="local-name-tag">Alex Rivera (You)</span>
+                    <span class="participant-tag-mic muted" id="local-mic-tag"><i data-lucide="mic-off"></i></span>
+                  </div>
+                </div>
+
+                <!-- Mock Participant 1 -->
+                <div class="meeting-video-card">
+                  <div class="video-feed-container">
+                    <div class="fallback-cam-feed">
+                      <div class="t-avatar avatar-cyan avatar-lg">SC</div>
+                      <div class="live-mic-visualizer active">
+                        <span></span><span></span><span></span><span></span><span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="video-overlay-info">
+                    <span class="participant-name">Sarah Chen (PM)</span>
+                    <span class="participant-tag-mic"><i data-lucide="mic"></i></span>
+                  </div>
+                </div>
+
+                <!-- Mock Participant 2 -->
+                <div class="meeting-video-card">
+                  <div class="video-feed-container">
+                    <div class="fallback-cam-feed">
+                      <div class="t-avatar avatar-magenta avatar-lg">MK</div>
+                      <div class="live-mic-visualizer">
+                        <span></span><span></span><span></span><span></span><span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="video-overlay-info">
+                    <span class="participant-name">Marcus K. (Lead UX Designer)</span>
+                    <span class="participant-tag-mic muted"><i data-lucide="mic-off"></i></span>
+                  </div>
+                </div>
+
+                <!-- Mock Participant 3 -->
+                <div class="meeting-video-card">
+                  <div class="video-feed-container">
+                    <div class="fallback-cam-feed">
+                      <div class="t-avatar avatar-blue avatar-lg">DR</div>
+                      <div class="live-mic-visualizer active">
+                        <span></span><span></span><span></span><span></span><span></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="video-overlay-info">
+                    <span class="participant-name">David R. (Security Auditor)</span>
+                    <span class="participant-tag-mic"><i data-lucide="mic"></i></span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Meeting Controls Bar -->
+              <div class="meeting-controls-bar">
+                <div class="m-controls-left">
+                  <span class="meeting-timer" id="meeting-room-timer">00:00:00</span>
+                  <span class="meeting-encryption-tag"><i data-lucide="shield-check" class="text-cyan"></i> SECURE E2E</span>
+                </div>
+
+                <div class="m-controls-center">
+                  <!-- Mic Toggle -->
+                  <button class="control-btn toggle-muted" id="btn-toggle-mic" onclick="app.toggleLocalAudio()" title="Mute/Unmute Mic">
+                    <i data-lucide="mic-off" id="icon-toggle-mic"></i>
+                  </button>
+                  
+                  <!-- Video Toggle -->
+                  <button class="control-btn toggle-muted" id="btn-toggle-video" onclick="app.toggleLocalVideo()" title="Start/Stop Video">
+                    <i data-lucide="video-off" id="icon-toggle-video"></i>
+                  </button>
+
+                  <!-- Screen Share -->
+                  <button class="control-btn" id="btn-toggle-screen" onclick="app.toggleLocalScreen()" title="Share Entire Screen">
+                    <i data-lucide="monitor" id="icon-toggle-screen"></i>
+                  </button>
+
+                  <!-- Whiteboard Popup Toggle -->
+                  <button class="control-btn" onclick="app.switchTab('whiteboard')" title="Switch to Whiteboard Workspace">
+                    <i data-lucide="palette"></i>
+                  </button>
+                  
+                  <!-- Invite Link Button -->
+                  <button class="control-btn" onclick="app.copyMeetingInviteLink()" title="Copy Shareable Meeting Invite Link">
+                    <i data-lucide="user-plus"></i>
+                  </button>
+                  
+                  <!-- Recording Button -->
+                  <button class="control-btn" id="btn-toggle-record" onclick="app.toggleMeetingRecording()" title="Record Meeting Session">
+                    <i data-lucide="disc" id="icon-toggle-record"></i>
+                  </button>
+                </div>
+
+                <div class="m-controls-right">
+                  <button class="btn btn-red btn-hangup" onclick="app.switchTab('overview')">
+                    <i data-lucide="phone-off" class="icon-left"></i> Hang Up
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Meeting Right Panel (Participants list + Room quick chat) -->
+            <div class="meeting-side-panel glass-card">
+              <div class="msp-tabs">
+                <button class="msp-tab-btn active" id="msp-tab-users" onclick="app.switchMeetingSideTab('users')">Participants (4)</button>
+                <button class="msp-tab-btn" id="msp-tab-chat" onclick="app.switchMeetingSideTab('chat')">Session Chat</button>
+              </div>
+
+              <!-- Participants List Panel -->
+              <div class="msp-content" id="msp-content-users">
+                <div class="meeting-invite-box">
+                  <div class="mib-text">
+                    <span class="mib-lbl">Invite Friends</span>
+                    <span class="mib-link" id="meeting-invite-url">https://connectx.app/meet-dx49-z73q</span>
+                  </div>
+                  <button class="mib-copy-btn" onclick="app.copyMeetingInviteLink()" title="Copy Link to Clipboard">
+                    <i data-lucide="copy"></i>
+                  </button>
+                </div>
+                <div class="msp-user-list">
+                  <div class="msp-user-item">
+                    <div class="t-avatar avatar-purple avatar-sm">AR</div>
+                    <span class="msp-uname">Alex Rivera (You)</span>
+                    <div class="msp-user-controls"><i data-lucide="mic-off" class="text-red"></i><i data-lucide="video-off" class="text-red"></i></div>
+                  </div>
+                  <div class="msp-user-item">
+                    <div class="t-avatar avatar-cyan avatar-sm">SC</div>
+                    <span class="msp-uname">Sarah Chen</span>
+                    <div class="msp-user-controls"><i data-lucide="mic" class="text-cyan"></i><i data-lucide="video" class="text-cyan"></i></div>
+                  </div>
+                  <div class="msp-user-item">
+                    <div class="t-avatar avatar-magenta avatar-sm">MK</div>
+                    <span class="msp-uname">Marcus K.</span>
+                    <div class="msp-user-controls"><i data-lucide="mic-off" class="text-red"></i><i data-lucide="video" class="text-cyan"></i></div>
+                  </div>
+                  <div class="msp-user-item">
+                    <div class="t-avatar avatar-blue avatar-sm">DR</div>
+                    <span class="msp-uname">David R.</span>
+                    <div class="msp-user-controls"><i data-lucide="mic" class="text-cyan"></i><i data-lucide="video" class="text-cyan"></i></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Chat Panel -->
+              <div class="msp-content" id="msp-content-chat" style="display:none;">
+                <div class="msp-chat-messages" id="meeting-quick-chat-box">
+                  <div class="mq-bubble">
+                    <span class="mq-sender">Sarah Chen:</span>
+                    <p class="mq-text">Hey everyone, thanks for joining this operations sprint review!</p>
+                  </div>
+                  <div class="mq-bubble">
+                    <span class="mq-sender">Marcus K.:</span>
+                    <p class="mq-text">Ready to share whiteboard sketches.</p>
+                  </div>
+                </div>
+                <div class="msp-chat-input-bar">
+                  <input type="text" placeholder="Type quick message..." id="meeting-quick-chat-input" onkeydown="if(event.key === 'Enter') app.sendMeetingQuickChat()">
+                  <button onclick="app.sendMeetingQuickChat()"><i data-lucide="send"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 3: Collaborative Whiteboard -->
+        <div class="dash-tab-content" id="tab-whiteboard">
+          <div class="dashboard-whiteboard-layout">
+            <!-- Whiteboard Floating Control Panel -->
+            <div class="wb-canvas-toolbar glass-card">
+              <div class="wb-tool-group">
+                <button class="wb-tool-btn active" id="wb-tool-draw" onclick="app.setWhiteboardTool('draw')" title="Pencil Draw Tool">
+                  <i data-lucide="pencil"></i>
+                </button>
+                <button class="wb-tool-btn" id="wb-tool-erase" onclick="app.setWhiteboardTool('erase')" title="Eraser Tool">
+                  <i data-lucide="eraser"></i>
+                </button>
+              </div>
+
+              <div class="wb-divider"></div>
+
+              <!-- Neon Colors Selector -->
+              <div class="wb-colors-palette">
+                <button class="color-btn active" style="background: var(--cyan);" onclick="app.setWhiteboardColor('var(--cyan)', this)"></button>
+                <button class="color-btn" style="background: var(--magenta);" onclick="app.setWhiteboardColor('var(--magenta)', this)"></button>
+                <button class="color-btn" style="background: var(--purple);" onclick="app.setWhiteboardColor('var(--purple)', this)"></button>
+                <button class="color-btn" style="background: var(--yellow);" onclick="app.setWhiteboardColor('var(--yellow)', this)"></button>
+                <button class="color-btn" style="background: #0f172a;" onclick="app.setWhiteboardColor('#0f172a', this)"></button>
+              </div>
+
+              <div class="wb-divider"></div>
+
+              <!-- Stroke Width -->
+              <div class="wb-size-slider">
+                <i data-lucide="type-scale" style="font-size:12px;opacity:0.6;"></i>
+                <input type="range" min="1" max="20" value="4" id="wb-stroke-size" onchange="app.setWhiteboardStrokeSize(this.value)">
+              </div>
+
+              <div class="wb-divider"></div>
+
+              <button class="btn btn-secondary wb-clear-btn" onclick="app.clearWhiteboardCanvas()">
+                <i data-lucide="trash-2" class="icon-left"></i> Clear Canvas
+              </button>
+            </div>
+
+            <!-- Canvas Container -->
+            <div class="wb-canvas-wrapper glass-card">
+              <canvas id="whiteboard-canvas"></canvas>
+              <div class="wb-hint-overlay">
+                <i data-lucide="info"></i> Draw directly on this high-fidelity collaborative vector canvas
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 4: Live Chat Channel Tab -->
+        <div class="dash-tab-content" id="tab-chat">
+          <div class="dashboard-chat-layout">
+            <!-- Left Side Channels -->
+            <div class="chat-channels-sidebar glass-card">
+              <h4>Discussion Channels</h4>
+              <div class="channel-list">
+                <button class="channel-item active" data-channel="general" onclick="app.switchChannel('general')">
+                  <i data-lucide="hash"></i> #general
+                </button>
+                <button class="channel-item" data-channel="engineering" onclick="app.switchChannel('engineering')">
+                  <i data-lucide="hash"></i> #engineering-team
+                </button>
+                <button class="channel-item" data-channel="marketing" onclick="app.switchChannel('marketing')">
+                  <i data-lucide="hash"></i> #marketing-huddle
+                </button>
+                <button class="channel-item" data-channel="ai-summaries" onclick="app.switchChannel('ai-summaries')">
+                  <i data-lucide="sparkles"></i> #ai-meeting-summaries
+                </button>
+              </div>
+            </div>
+
+            <!-- Conversation Box -->
+            <div class="chat-conversation-container glass-card">
+              <div class="chat-conv-header">
+                <span class="active-channel-title" id="active-channel-title">#general</span>
+                <span class="active-channel-desc">Welcome to the central general channel. Start your communication.</span>
+              </div>
+
+              <!-- Message Stream -->
+              <div class="chat-message-stream" id="chat-messages-stream">
+                <div class="chat-msg-row">
+                  <div class="t-avatar avatar-cyan avatar-sm">SC</div>
+                  <div class="chat-msg-details">
+                    <span class="cm-sender">Sarah Chen <span class="cm-time">10:45 AM</span></span>
+                    <p class="cm-body">Good morning engineers. I have finalized the core pricing models. Let me know if the discount logic fits our structure.</p>
+                  </div>
+                </div>
+
+                <div class="chat-msg-row">
+                  <div class="t-avatar avatar-magenta avatar-sm">MK</div>
+                  <div class="chat-msg-details">
+                    <span class="cm-sender">Marcus K. <span class="cm-time">10:47 AM</span></span>
+                    <p class="cm-body">The Pro card has a gorgeous neon glow, Sarah! Perfect Apple/Linear style aesthetic.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Typing Indicator simulated box -->
+              <div class="typing-indicator-row" id="chat-typing-row" style="display:none;">
+                <div class="typing-indicator"><span></span><span></span><span></span></div>
+                <span class="typing-text">Sarah Chen is typing...</span>
+              </div>
+
+              <!-- Chat Message Input -->
+              <div class="chat-text-input-wrapper">
+                <input type="text" placeholder="Type a message in #general..." id="chat-main-input" onkeydown="if(event.key === 'Enter') app.sendChatMessage()">
+                <div class="chat-input-actions">
+                  <button class="cia-btn" title="Add Whiteboard clip"><i data-lucide="palette"></i></button>
+                  <button class="cia-btn" title="Upload Secure File"><i data-lucide="paperclip"></i></button>
+                  <button class="btn btn-primary" onclick="app.sendChatMessage()">Send Message</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 5: Shared File Center -->
+        <div class="dash-tab-content" id="tab-files">
+          <div class="dashboard-files-layout">
+            <!-- Left Side Drag-Drop Box -->
+            <div class="glass-card files-drag-drop-panel" id="file-drop-zone">
+              <i data-lucide="upload-cloud" class="upload-icon text-cyan"></i>
+              <h3>Secure Upload Vault</h3>
+              <p>Drag and drop any files here or click below to secure them. Files are scanned, encrypted with AES-256 protocols, and stored instantly.</p>
+              
+              <input type="file" id="file-uploader-input" style="display:none;" onchange="app.handleFileSelect(event)">
+              <button class="btn btn-primary" onclick="document.getElementById('file-uploader-input').click()">
+                Select Files to Secure
+              </button>
+              
+              <span class="vault-sec-tag"><i data-lucide="shield-check" class="text-cyan"></i> AES-256 Cloud Shield Engaged</span>
+            </div>
+
+            <!-- Right Side Files List -->
+            <div class="glass-card files-list-panel">
+              <div class="flp-header">
+                <h4>Secure Shared Assets</h4>
+                <span class="flp-count" id="files-count-badge">3 Files Shared</span>
+              </div>
+
+              <div class="flp-table-wrapper">
+                <table class="files-table">
+                  <thead>
+                    <tr>
+                      <th>Filename</th>
+                      <th>Size</th>
+                      <th>Uploaded By</th>
+                      <th>Encrypted Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="shared-files-table-body">
+                    <tr>
+                      <td>
+                        <div class="file-name-cell">
+                          <i data-lucide="image" class="text-cyan"></i>
+                          <span>LandingPage_v3.fig</span>
+                        </div>
+                      </td>
+                      <td>14.8 MB</td>
+                      <td>Marcus K.</td>
+                      <td><span class="badge-active-green"><i data-lucide="lock" style="width:10px;height:10px;"></i> Secured</span></td>
+                      <td><button class="hi-action-btn" onclick="app.downloadMockFile('LandingPage_v3.fig')"><i data-lucide="download"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="file-name-cell">
+                          <i data-lucide="file-text" class="text-purple"></i>
+                          <span>SecurityProtocol_Audit.pdf</span>
+                        </div>
+                      </td>
+                      <td>2.1 MB</td>
+                      <td>SecOps Admin</td>
+                      <td><span class="badge-active-green"><i data-lucide="lock" style="width:10px;height:10px;"></i> Secured</span></td>
+                      <td><button class="hi-action-btn" onclick="app.downloadMockFile('SecurityProtocol_Audit.pdf')"><i data-lucide="download"></i></button></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="file-name-cell">
+                          <i data-lucide="file-video" class="text-magenta"></i>
+                          <span>HeroDemoRecording.mp4</span>
+                        </div>
+                      </td>
+                      <td>48.2 MB</td>
+                      <td>Alex Rivera</td>
+                      <td><span class="badge-active-green"><i data-lucide="lock" style="width:10px;height:10px;"></i> Secured</span></td>
+                      <td><button class="hi-action-btn" onclick="app.downloadMockFile('HeroDemoRecording.mp4')"><i data-lucide="download"></i></button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View: Friends Hub Directory -->
+        <div class="dash-tab-content" id="tab-friends">
+          <div class="dashboard-friends-layout">
+            <!-- Left Side Add Friends card -->
+            <div class="glass-card friends-search-panel">
+              <i data-lucide="user-plus" class="friends-search-icon text-cyan"></i>
+              <h3>Expand Your Directory</h3>
+              <p>Add colleagues or remote partners to your workspace network. Friends can be invited into huddles instantly.</p>
+              
+              <form class="friends-add-form" onsubmit="event.preventDefault(); app.addFriend();">
+                <div class="form-group">
+                  <label for="friend-input-name">Colleague Full Name</label>
+                  <input type="text" id="friend-input-name" placeholder="E.g., Liam Evans" required>
+                </div>
+                <div class="form-group">
+                  <label for="friend-input-role">Workspace Role</label>
+                  <input type="text" id="friend-input-role" placeholder="E.g., Senior Developer" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                  Send Connect Invitation
+                </button>
+              </form>
+            </div>
+
+            <!-- Right Side Friends List Roster -->
+            <div class="glass-card friends-list-panel">
+              <div class="flp-header">
+                <h4>Workspace Network</h4>
+                <span class="flp-count" id="friends-count-badge">3 Contacts Online</span>
+              </div>
+              <div class="friends-roster-list" id="friends-roster-list">
+                <!-- Friend 1 -->
+                <div class="friend-card">
+                  <div class="t-avatar avatar-cyan">SC</div>
+                  <div class="friend-details">
+                    <span class="fr-name">Sarah Chen</span>
+                    <span class="fr-role">Lead Product Manager</span>
+                  </div>
+                  <span class="friend-status online"><span class="status-pulse-green"></span> Online</span>
+                  <button class="hi-action-btn" onclick="app.inviteFriendToMeeting('Sarah Chen')" title="Invite to active huddle"><i data-lucide="phone-call"></i></button>
+                </div>
+                <!-- Friend 2 -->
+                <div class="friend-card">
+                  <div class="t-avatar avatar-magenta">MK</div>
+                  <div class="friend-details">
+                    <span class="fr-name">Marcus K.</span>
+                    <span class="fr-role">Director of UX</span>
+                  </div>
+                  <span class="friend-status online"><span class="status-pulse-green"></span> Online</span>
+                  <button class="hi-action-btn" onclick="app.inviteFriendToMeeting('Marcus K.')" title="Invite to active huddle"><i data-lucide="phone-call"></i></button>
+                </div>
+                <!-- Friend 3 -->
+                <div class="friend-card">
+                  <div class="t-avatar avatar-blue">DR</div>
+                  <div class="friend-details">
+                    <span class="fr-name">David R.</span>
+                    <span class="fr-role">Chief Information Officer</span>
+                  </div>
+                  <span class="friend-status online"><span class="status-pulse-green"></span> Online</span>
+                  <button class="hi-action-btn" onclick="app.inviteFriendToMeeting('David R.')" title="Invite to active huddle"><i data-lucide="phone-call"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 6: System Settings -->
+        <div class="dash-tab-content" id="tab-settings">
+          <div class="dashboard-settings-layout">
+            <!-- Settings Side Tabs -->
+            <div class="glass-card settings-panel">
+              <form class="settings-form" onsubmit="event.preventDefault(); app.saveUserSettings();">
+                <h3>Global User Settings</h3>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="set-username">Display Name</label>
+                    <input type="text" id="set-username" value="Alex Rivera" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="set-userrole">Corporate Role</label>
+                    <input type="text" id="set-userrole" value="Workspace Administrator" readonly style="opacity:0.6;background:rgba(0,0,0,0.2);">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="set-userstatus">Custom Status Badge</label>
+                  <input type="text" id="set-userstatus" placeholder="E.g., In a meeting, out for lunch...">
+                </div>
+
+                <div class="form-divider"></div>
+
+                <!-- Video / Audio Level Testing Widget -->
+                <h3>System Audio &amp; Video Diagnostics</h3>
+                
+                <div class="form-row media-diagnostics-row">
+                  <div class="form-group">
+                    <label>Microphone Input Level</label>
+                    <div class="audio-mic-tester-container">
+                      <div class="mic-level-meter">
+                        <div class="mic-level-fill" id="mic-tester-fill" style="width: 0%"></div>
+                      </div>
+                      <button type="button" class="btn btn-secondary" onclick="app.startMicDiagnostics()" id="btn-mic-diag">Test Microphone</button>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Camera Quality Select</label>
+                    <select id="cam-quality-select">
+                      <option value="1080p">Ultra HD (1080p, 60fps)</option>
+                      <option value="720p" selected>HD Standard (720p, 30fps)</option>
+                      <option value="480p">Low Bandwidth (480p, 30fps)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="form-actions-bar">
+                  <button type="submit" class="btn btn-primary">Save Config Changes</button>
+                  <button type="button" class="btn btn-secondary" onclick="app.resetSettingsForm()">Reset Fields</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Auth Modal Overlay -->
+  <div id="auth-modal" class="auth-modal">
+    <div class="auth-modal-content glass-card">
+      <button class="auth-modal-close" onclick="app.hideAuthModal()">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="auth-tab-login" onclick="app.switchAuthTab('login')">Login</button>
+        <button class="auth-tab-btn" id="auth-tab-signup" onclick="app.switchAuthTab('signup')">Sign Up</button>
+      </div>
+      
+      <!-- Login View -->
+      <form id="auth-form-login" onsubmit="event.preventDefault(); app.handleAuthSubmit('login');">
+        <h3 class="auth-title">Welcome back to Connect<span class="gradient-text">X</span></h3>
+        <p class="auth-subtitle">Verify your administrator credentials to access dashboard streams.</p>
+        <div class="form-group">
+          <label for="login-email">Corporate Email</label>
+          <input type="email" id="login-email" placeholder="alex@connectx.com" required value="alex@connectx.com">
+        </div>
+        <div class="form-group">
+          <label for="login-pass">Security Cipher (Password)</label>
+          <input type="password" id="login-pass" required value="admin123">
+        </div>
+        <button type="submit" class="btn btn-primary auth-submit-btn">Login to Workspace</button>
+      </form>
+      
+      <!-- Sign Up View -->
+      <form id="auth-form-signup" onsubmit="event.preventDefault(); app.handleAuthSubmit('signup');" style="display: none;">
+        <h3 class="auth-title">Create your Workspace</h3>
+        <p class="auth-subtitle">Register your identity to deploy multi-user nodes instantly.</p>
+        <div class="form-group">
+          <label for="signup-name">Display Full Name</label>
+          <input type="text" id="signup-name" placeholder="Alex Rivera" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-email">Corporate Email</label>
+          <input type="email" id="signup-email" placeholder="name@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="signup-pass">Create Security Password</label>
+          <input type="password" id="signup-pass" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary auth-submit-btn">Create Free Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lucide Icons CDN script -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Socket.io Script Client -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- Application JS Engine -->
+  <script src="app.js"></script>
+</body>
+</html>

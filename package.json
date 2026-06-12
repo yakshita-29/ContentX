@@ -1,0 +1,20 @@
+{
+  "name": "connectx-workspace",
+  "version": "2.5.0",
+  "description": "ConnectX - Real-Time Communication & Collaboration Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.0.3",
+    "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.7.2"
+  },
+  "author": "ConnectX Team",
+  "license": "ISC"
+}

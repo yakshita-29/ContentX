@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  connectx-app:
+    build: .
+    container_name: connectx-app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongo:27017/connectx
+      - CORS_ORIGIN=https://yourdomain.com
+    volumes:
+      - uploads-data:/usr/src/app/uploads
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6.0
+    container_name: connectx-db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  uploads-data:
+  mongo-data:
