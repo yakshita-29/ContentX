@@ -1,6 +1,6 @@
 # ContentX
 
-A modern AI-powered content creation and management platform.
+A modern real-time video conferencing and collaboration platform designed for seamless virtual communication. ContentX enables users to create and join meeting rooms, conduct online discussions, collaborate remotely, and connect through secure high-quality audio and video calls. Built with scalability and performance in mind, it delivers a smooth and interactive meeting experience across devices.
 
 ## 🚀 Live Demo
 
@@ -10,24 +10,28 @@ A modern AI-powered content creation and management platform.
 
 ## 📌 Features
 
-- AI-powered content generation
-- Modern responsive UI
-- Fast and scalable architecture
-- User-friendly experience
-- Cloud deployment with Render
+- 🎥 Real-time video conferencing
+- 🎙️ High-quality audio communication
+- 🔗 Instant meeting room creation and sharing
+- 👥 Join meetings using unique room links
+- 💬 Real-time collaboration and interaction
+- 📱 Fully responsive design for desktop and mobile
+- 🔒 Secure and reliable communication
+- ⚡ Fast and scalable architecture
+- 🌐 Cross-platform accessibility
+- 🚀 Cloud deployment for seamless availability
 
 ## 🛠️ Tech Stack
 
-- React
-- TypeScript
-- Tailwind CSS
+- HTML5
+- CSS3
+- JavaScript
 - Node.js
+- Express.js
+- Docker
+- Nginx
 - Render
-
-## 📷 Screenshot
-
-![ContentX Screenshot](./screenshot.png)
-
+  
 ## 👩‍💻 Author
 
 **Yakshita Pedapudi**
